@@ -13,7 +13,8 @@ setup(
     author="ChangHoon Hahn",
     author_email="changhoon.hahn@princeton.edu",
     url="https://github.com/changhoonhahn/SpenderQ",
-    packages=find_packages(), #["spenderq"],
+    packages=find_packages(where="src"), #["spenderq"],
+    package_dir={"": "src"},
     classifiers=[
         "Development Status :: 4 - Beta",
         "License :: OSI Approved :: MIT License",
