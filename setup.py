@@ -1,4 +1,5 @@
-from setuptools import setup
+from setuptools import setup, find_packages
+
 
 long_description = open('README.md').read()
 
@@ -12,7 +13,7 @@ setup(
     author="ChangHoon Hahn",
     author_email="changhoon.hahn@princeton.edu",
     url="https://github.com/changhoonhahn/SpenderQ",
-    packages=["spenderq"],
+    packages=find_packages(), #["spenderq"],
     classifiers=[
         "Development Status :: 4 - Beta",
         "License :: OSI Approved :: MIT License",
