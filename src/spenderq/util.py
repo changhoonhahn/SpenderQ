@@ -3,6 +3,55 @@ import numba
 import numpy as np
 import scipy.sparse
 
+
+
+
+class london_picca(object): 
+
+    def __init__(self): 
+        ''' simple object to interface with London Picca continuum fits 
+        '''
+        # read picca continuum
+        fdelta = '/tigress/chhahn/spender_qso/picca/delta_attributes.fits.gz'
+
+        with fitsio.FITS(fdelta) as attrs:
+
+            cont = attrs['CONT'].read()
+            loglam = cont['LOGLAM_REST']
+            lamb_rest=10**loglam
+            mean_cont   = cont['MEAN_CONT']
+            cut = cont['WEIGHT']>0.
+
+            self.wave_picca = lamb_rest[cut]
+
+            self.mean_continuum_picca = mean_cont[cut]
+
+            if 'FIT_METADATA' not in attrs: raise ValueError 
+
+            self.picca_cont = attrs['FIT_METADATA'].read()
+
+    def get_continuum(self, tid):
+        ''' get picca continuum given target id
+        '''
+        # plot picca continuum given london mock target id
+        w = (self.picca_cont['LOS_ID'] == tid)
+
+        if sum(w) > 0 and picca_cont['ACCEPTED_FIT'][w]==True:
+            aq = self.picca_cont['ZERO_POINT'][w]
+            bq = self.picca_cont['SLOPE'][w]
+
+            if aq < 0: print('negative slope')
+
+            lambda_func = np.log10(self.wave_picca/min(self.wave_picca))
+            lambda_func /= np.log10(max(wave_picca)/min(self.wave_picca))
+            fitted_continuum = self.mean_continuum_picca * (lambda_func * bq + aq)
+        else:
+            print('no fit')
+            return None
+
+        return fitted_continuum
+
+
 def centers2edges(centers):
     """Convert bin centers to bin edges, guessing at what you probably meant
     Args:
