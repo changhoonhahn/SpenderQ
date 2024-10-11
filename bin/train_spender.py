@@ -10,7 +10,7 @@ import torch
 from torch import nn
 from accelerate import Accelerator
 from spender import SpectrumAutoencoder
-from spender.data import desi_qso as desi 
+from spenderq import desi_qso as desi 
 from spender.util import mem_report, resample_to_restframe
 
 def prepare_train(seq,niter=800):

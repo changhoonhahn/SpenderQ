@@ -5,12 +5,19 @@ import scipy.sparse
 
 
 class london_picca(object): 
-    def __init__(self): 
+    def __init__(self, line): 
         ''' simple object to interface with London Picca continuum fits 
         '''
         import fitsio
+
         # read picca continuum
-        fdelta = '/tigress/chhahn/spender_qso/picca/delta_attributes.fits.gz'
+        if line == 'LyA': 
+            fdelta = '/tigress/chhahn/spender_qso/picca/delta_attributes.fits.gz'
+        elif line == 'LyB': 
+            fdelta = '/tigress/chhahn/spender_qso/picca/delta_attributes_iteration4_londonlyb.fits.gz'
+        else: 
+            raise ValueError('line has to be either LyA or LyB') 
+
 
         with fitsio.FITS(fdelta) as attrs:
 

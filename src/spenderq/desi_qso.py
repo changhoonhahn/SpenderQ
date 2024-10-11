@@ -104,8 +104,9 @@ class DESI(Instrument):
         """
         if tag is None:
             tag = "Variable"
-        classname = cls.__mro__[0].__name__
-        filename = f"{classname}{tag}*_*.pkl"
+        #classname = cls.__mro__[0].__name__
+        #filename = f"{classname}{tag}*_*.pkl"
+        filename = f"{tag}*_*.pkl"
         batches = glob.glob(dir + "/" + filename)
 
         NBATCH = len(batches)
