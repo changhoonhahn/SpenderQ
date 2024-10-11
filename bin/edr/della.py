@@ -89,8 +89,4 @@ if __name__=="__main__":
     #        'DESIedr.qso_highz', 
     #        'edr.highz.iter0', 
     #        0, 26, sigma=1.5, debug=True) 
-    
-    #train_spenderq(
-    #        'qso.london.z_2p1_3p5.rebin.iter4', 
-    #        'london_highz.rebin.iter4', 
-    #        2.1, 3.5, debug=False)
+    train_spenderq('edr.highz.iter0', 'edr.highz.iter0', 2.1, 3.5, debug=False)
