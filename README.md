@@ -28,8 +28,3 @@ Peter Melchior (Princeton)
 Abby Bault (Princeton)
 
 Hiram Herrera (CEA)
-
-
-
-## Contacts
-
