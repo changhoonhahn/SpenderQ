@@ -14,7 +14,7 @@ and an example on a mock spectrum (grey/black) where we know the truth (blue):
 <img src="./doc/spenderq_demo.png" width="800">
 
 Here's `SpenderQ` in action on real public DESI data: 
-<img src="./doc/spenderq_demo0.gif" width="800">
+<img src="./doc/spenderq_demo.gif" width="800">
 
 Here's another for a spectrum with a Broad Absoprtion Line, which was not
 masked
